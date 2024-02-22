@@ -1,0 +1,167 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    {% load static %}
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Bootstrap CSS link (either from CDN or local file) -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+        <style>
+            body {
+                background-color: rgb(0, 0, 0);
+            }
+    
+            .form-container {
+                border: 1px solid #ccc;
+                padding: 40px;
+                border-radius: 10px;
+                background-color: rgb(199, 199, 199);
+            }
+    
+            .card-registration {
+                border-radius: 15px;
+            }
+    
+            .img-fluid {
+                border-top-left-radius: 0.25rem;
+                border-bottom-left-radius: 0.25rem;
+                height: 100%;
+                width: 100%;
+            }
+    
+            .card-body {
+                padding: 5rem !important;
+            }
+    
+            .text-primary {
+                color: #007bff !important;
+            }
+    
+            .form-outline {
+                position: relative;
+            }
+    
+            .form-outline input {
+                width: 100%;
+                padding: 0.75rem;
+                padding-top: 1.25rem;
+                padding-bottom: 1.25rem;
+                margin-bottom: 1.25rem;
+                background-color: transparent;
+                border: none;
+                border-bottom: 1px solid #ced4da;
+            }
+    
+            .form-outline label {
+                position: absolute;
+                top: 0;
+                left: 0;
+                padding: 0.75rem;
+                pointer-events: none;
+                transition: 0.2s;
+            }
+    
+            .form-outline input:focus~label,
+            .form-outline input:not(:placeholder-shown)~label {
+                font-size: 0.6rem;
+                transform: translateY(-1.5rem);
+                color: #007bff;
+            }
+    
+            .btn-success {
+                background-color: #28a745;
+                border-color: #28a745;
+            }
+        </style>
+        <title>Signup</title>
+    </head>
+    
+    <body>
+    
+        <form method="post">
+            {% csrf_token %}
+            <section class="h-100 bg-dark">
+                <div class="container py-5 h-100">
+                    <div class="row d-flex justify-content-center align-items-center h-100">
+                        <div class="col">
+                            <div class="card card-registration my-4">
+                                <div class="row g-0">
+                                    <div class="col-xl-6 d-none d-xl-block">
+                                        <img src="{% static 'media/img.7.jpg' %}" alt="Sample photo" class="img-fluid" />
+                                    </div>
+                                    <div class="col-xl-6">
+                                        <div class="card-body p-md-5 text-black">
+                                            <h1 class="mb-4 text-primary fw-bold display-5">Pet Registration Form</h1>
+    
+                                            <div class="row">
+                                                <div class="col-md-6 mb-4">
+                                                    <div class="form-outline">
+                                                        {{ form.username.label_tag }}
+                                                        {{ form.username }}
+                                                    </div>
+                                                </div>
+                                            </div>
+    
+                                            <div class="row">
+                                                <div class="col-md-6 mb-4">
+                                                    <div class="form-outline">
+                                                        {{ form.first_name.label_tag }}
+                                                        {{ form.first_name }}
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 mb-4">
+                                                    <div class="form-outline">
+                                                        {{ form.last_name.label_tag }}
+                                                        {{ form.last_name }}
+                                                    </div>
+                                                </div>
+                                            </div>
+    
+                                            <div class="row">
+                                                <div class="col-md-6 mb-4">
+                                                    <div class="form-outline">
+                                                        {{ form.email.label_tag }}
+                                                        {{ form.email }}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6 mb-4">
+                                                    <div class="form-outline">
+                                                        {{ form.password1.label_tag }}
+                                                        {{ form.password1 }}
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 mb-4">
+                                                    <div class="form-outline">
+                                                        {{ form.password2.label_tag }}
+                                                        {{ form.password2 }}
+                                                    </div>
+                                                </div>
+                                            </div>
+    
+                                            <div class="d-flex justify-content-end pt-3">
+                                                <button type="submit" class="btn btn-success btn-lg ms-2">Submit form</button>
+                                            </div>
+    
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </section>
+    
+    </form>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    </body>
+    
+    </html>
+    

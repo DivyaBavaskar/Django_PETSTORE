@@ -1,0 +1,245 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+    <div class="signup-form text-center">
+        <center>
+            <h2>Add Address</h2>
+        </center>
+        <form style="background-color: #EEE;" method="post" class="form-horizontal">
+        {% csrf_token %}
+        <div class="from-group text-center" style="background-color: #EEE;">
+        <div class="mt-3 mb-2 col-xs-8">
+            <input type="text" class="form-control" name="customer" value="{{ request.user.id }}" hidden/>
+            {% if form.customer.errors %}
+            {% for err in form.customer.errors %}
+            <div class="col-xs-8 fs-6 mb-2">
+                <p style="font-size:12px; color:red" class="ml-2 mt-2">*{{ err }}</p>
+            </div>
+            {% endfor %}
+            {% endif %}
+        </div>
+        <div class="mt-3 mb-2 col-xs-8">
+            <input type="text" placeholder="Street Name" class="form-control" name="street" value="" />
+            {% if form.street.errors %}
+            {% for err in form.street.errors %}
+            <div class="col-xs-8 fs-6 mb-2">
+                <p style="font-size:12px; color:red" class="ml-2 mt-2">*{{ err }}</p>
+            </div>
+            {% endfor %}
+            {% endif %}
+        </div>
+        <div class="mt-3 mb-2 col-xs-8">
+            <input type="text" class="form-control" name="building_name" value="" placeholder="Flat No., Bulding Name"/>
+            {% if form.building_name.errors %}
+            {% for err in form.building_name.errors %}
+            <div class="col-xs-8 fs-6 mb-2">
+                <p style="font-size:12px; color:red" class="ml-2 mt-2">*{{ err }}</p>
+            </div>
+            {% endfor %}
+            {% endif %}
+        </div>
+        <div class="mt-3 mb-2 col-xs-8">
+            <input type="text" class="form-control" name="city" value="" placeholder="city Name"/>
+            {% if form.city.errors %}
+            {% for err in form.city.errors %}
+            <div class="col-xs-8 fs-6 mb-2">
+                <p style="font-size:12px; color:red" class="ml-2 mt-2">*{{ err }}</p>
+            </div>
+            {% endfor %}
+            {% endif %}
+        </div>
+        <div class="mt-3 mb-2 col-xs-8">
+            <input type="text" class="form-control" name="state" value="" placeholder="state Name"/>
+            {% if form.state.errors %}
+            {% for err in form.state.errors %}
+            <div class="col-xs-8 fs-6 mb-2">
+                <p style="font-size:12px; color:red" class="ml-2 mt-2">*{{ err }}</p>
+            </div>
+            {% endfor %}
+            {% endif %}
+        </div>
+        <div class="mt-3 mb-2 col-xs-8">
+            <input type="text" class="form-control" name="landmark" value="" placeholder="Land Mark Name"/>
+            {% if form.landmark.errors %}
+            {% for err in form.landmark.errors %}
+            <div class="col-xs-8 fs-6 mb-2">
+                <p style="font-size:12px; color:red" class="ml-2 mt-2">*{{ err }}</p>
+            </div>
+            {% endfor %}
+            {% endif %}
+        </div>
+        <div class="mt-3 mb-2 col-xs-8">
+            <input type="text" class="form-control" name="zipcode" value="" placeholder="Zipcode"/>
+            {% if form.zipcode.errors %}
+            {% for err in form.zipcode.errors %}
+            <div class="col-xs-8 fs-6 mb-2">
+                <p style="font-size:12px; color:red" class="ml-2 mt-2">*{{ err }}</p>
+            </div>
+            {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+    <button type="submit" class="btn btn-success btn-lg ms-2">Submit form</button>
+    </form>
+    
+    </div>
+</div>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* Custom CSS styles */
+        .signup-form {
+            margin-top: 50px;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-control {
+            display: block;
+            width: 100%;
+            height: calc(2.25rem + 2px);
+            padding: .375rem .75rem;
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 1.5;
+            color: #495057;
+            background-color: #fff;
+            background-clip: padding-box;
+            border: 1px solid #ced4da;
+            border-radius: .25rem;
+            transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+        }
+
+        .btn {
+            display: inline-block;
+            font-weight: 400;
+            color: #212529;
+            text-align: center;
+            vertical-align: middle;
+            user-select: none;
+            background-color: transparent;
+            border: 1px solid transparent;
+            padding: .375rem .75rem;
+            font-size: 1rem;
+            line-height: 1.5;
+            border-radius: .25rem;
+            transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+        }
+
+        .btn-success {
+            color: #fff;
+            background-color: #28a745;
+            border-color: #28a745;
+        }
+
+        .btn-success:hover {
+            color: #fff;
+            background-color: #218838;
+            border-color: #1e7e34;
+        }
+    </style>
+</head>
+<body>
+    <div class="signup-form text-center">
+        <center>
+            <h2>Add Address</h2>
+        </center>
+        <form style="background-color: #EEE;" method="post" class="form-horizontal">
+            {% csrf_token %}
+            <div class="from-group text-center" style="background-color: #EEE;">
+                <form style="background-color: #EEE;" method="post" class="form-horizontal">
+                    {% csrf_token %}
+                    <div class="from-group text-center" style="background-color: #EEE;">
+                    <div class="mt-3 mb-2 col-xs-8">
+                        <input type="text" class="form-control" name="customer" value="{{ request.user.id }}" hidden/>
+                        {% if form.customer.errors %}
+                        {% for err in form.customer.errors %}
+                        <div class="col-xs-8 fs-6 mb-2">
+                            <p style="font-size:12px; color:red" class="ml-2 mt-2">*{{ err }}</p>
+                        </div>
+                        {% endfor %}
+                        {% endif %}
+                    </div>
+                    <div class="mt-3 mb-2 col-xs-8">
+                        <input type="text" placeholder="Street Name" class="form-control" name="street" value="" />
+                        {% if form.street.errors %}
+                        {% for err in form.street.errors %}
+                        <div class="col-xs-8 fs-6 mb-2">
+                            <p style="font-size:12px; color:red" class="ml-2 mt-2">*{{ err }}</p>
+                        </div>
+                        {% endfor %}
+                        {% endif %}
+                    </div>
+                    <div class="mt-3 mb-2 col-xs-8">
+                        <input type="text" class="form-control" name="building_name" value="" placeholder="Flat No., Bulding Name"/>
+                        {% if form.building_name.errors %}
+                        {% for err in form.building_name.errors %}
+                        <div class="col-xs-8 fs-6 mb-2">
+                            <p style="font-size:12px; color:red" class="ml-2 mt-2">*{{ err }}</p>
+                        </div>
+                        {% endfor %}
+                        {% endif %}
+                    </div>
+                    <div class="mt-3 mb-2 col-xs-8">
+                        <input type="text" class="form-control" name="city" value="" placeholder="city Name"/>
+                        {% if form.city.errors %}
+                        {% for err in form.city.errors %}
+                        <div class="col-xs-8 fs-6 mb-2">
+                            <p style="font-size:12px; color:red" class="ml-2 mt-2">*{{ err }}</p>
+                        </div>
+                        {% endfor %}
+                        {% endif %}
+                    </div>
+                    <div class="mt-3 mb-2 col-xs-8">
+                        <input type="text" class="form-control" name="state" value="" placeholder="state Name"/>
+                        {% if form.state.errors %}
+                        {% for err in form.state.errors %}
+                        <div class="col-xs-8 fs-6 mb-2">
+                            <p style="font-size:12px; color:red" class="ml-2 mt-2">*{{ err }}</p>
+                        </div>
+                        {% endfor %}
+                        {% endif %}
+                    </div>
+                    <div class="mt-3 mb-2 col-xs-8">
+                        <input type="text" class="form-control" name="landmark" value="" placeholder="Land Mark Name"/>
+                        {% if form.landmark.errors %}
+                        {% for err in form.landmark.errors %}
+                        <div class="col-xs-8 fs-6 mb-2">
+                            <p style="font-size:12px; color:red" class="ml-2 mt-2">*{{ err }}</p>
+                        </div>
+                        {% endfor %}
+                        {% endif %}
+                    </div>
+                    <div class="mt-3 mb-2 col-xs-8">
+                        <input type="text" class="form-control" name="zipcode" value="" placeholder="Zipcode"/>
+                        {% if form.zipcode.errors %}
+                        {% for err in form.zipcode.errors %}
+                        <div class="col-xs-8 fs-6 mb-2">
+                            <p style="font-size:12px; color:red" class="ml-2 mt-2">*{{ err }}</p>
+                        </div>
+                        {% endfor %}
+                        {% endif %}
+                    </div>
+            
+            </div>
+            <button type="submit" class="btn btn-success btn-lg ms-2">Submit form</button>
+        </form>
+    </div>
+</body>
+</html>
+
